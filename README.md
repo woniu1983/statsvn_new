@@ -3,22 +3,21 @@
 
 
 #使用方法 bat命令
+  
+    
+    SET WORKSP=D:\Projects\workingcopy_dir
+    SET STATESVN=D:\Program Files\statsvn-0.7.0
+    SET SVNLOG=%STATESVN%\svnlog
 
-  '''
-  SET WORKSP=D:\Projects\workingcopy_dir
-  SET STATESVN=D:\Program Files\statsvn-0.7.0
-  SET SVNLOG=%STATESVN%\svnlog
+    D:
+    cd %WORKSP%
+    svn log -r {2019-1-1}:{2019-4-1} --xml -v > %SVNLOG%\svn.log
 
-  D:
-  cd %WORKSP%
-  svn log -r {2019-1-1}:{2019-4-1} --xml -v > %SVNLOG%\svn.log
+    pause
 
-  pause
+    D:
+    cd %STATESVN%
+    java -jar statsvn.jar %SVNLOG%\svn.log %WORKSP% -output-dir %SVNLOG%\result
 
-  D:
-  cd %STATESVN%
-  java -jar statsvn.jar %SVNLOG%\svn.log %WORKSP% -output-dir %SVNLOG%\result
+    pause
 
-  pause
-
-  '''
