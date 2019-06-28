@@ -9,13 +9,13 @@
     SET STATESVN=D:\Program Files\statsvn-0.7.0
     SET SVNLOG=%STATESVN%\svnlog
 
-    D:
+    D:  ####注释： 这里指向工程所在盘符
     cd %WORKSP%
     svn log -r {2019-1-1}:{2019-4-1} --xml -v > %SVNLOG%\svn.log
 
     pause
 
-    D:
+    D:  ####注释： 这里指向Statsvn所在目录的盘符
     cd %STATESVN%
     java -jar statsvn.jar %SVNLOG%\svn.log %WORKSP% -output-dir %SVNLOG%\result
 
